@@ -1,0 +1,7 @@
+System.exit()
+When System.exit is called, the virtual machine performs two cleanup tasks before shutting down.
+    * Stops all program threads immediately; it does not cause finally blocks to execute
+    * Executes all shutdown hooks that have been registered with Runtime.addShutdownHook
+    * If either System.runFinalizersOnExit or its evil twin Runtime.runFinalizersOnExit has been called,
+      the VM runs the finalizers on all objects that have not yet been finalized.
+    * It is possible to halt the VM without executing shutdown hooks by calling System.halt
