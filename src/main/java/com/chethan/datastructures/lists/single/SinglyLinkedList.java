@@ -286,4 +286,46 @@ public class SinglyLinkedList {
         }
         return newHead;
     }
+
+    public SLLNode reverseKNodesRecursive(SLLNode head, int k){
+        SLLNode cur = head;
+        SLLNode next = null, prev = null;
+        int i = 0;
+        while(cur != null && i < k){
+            next = cur.getNext();
+            cur.setNext(prev);
+            prev = cur;
+            cur = next;
+            i++;
+        }
+        if(next != null){
+            head.setNext(reverseKNodesRecursive(next, k));
+        }
+        return prev;
+    }
+
+    public SLLNode reverseKNodesIterative(SLLNode head, int k){
+        SLLNode cur = head, next = null;
+        SLLNode prevTail = null; // last node after rev
+        SLLNode prevCur = head; // first node before rev
+        while(cur != null){
+            int i = 0;
+            SLLNode tail = null;
+            while(cur != null && i < k){
+                next = cur.getNext();
+                cur.setNext(tail);
+                tail = cur;
+                cur = next;
+                i++;
+            }
+            if(prevTail != null){
+                prevTail.setNext(tail);
+            }else{
+                head = tail;
+            }
+            prevTail = prevCur;
+            prevCur = cur;
+        }
+        return head;
+    }
 }

@@ -179,6 +179,7 @@ public class SinglyLinkedListTest {
         list.insertInSortedOrder(7);
         list.print();
     }
+
     @Test
     void pairReversal(){
         populateSortedList();
@@ -193,4 +194,16 @@ public class SinglyLinkedListTest {
         SinglyLinkedList.print(head);
     }
 
+    @Test
+    void kBlocksReversal(){
+        populateSortedList();
+        SLLNode head = list.reverseKNodesRecursive(list.getHead(), 3);
+        System.out.print("K Block reversal Recursive == ");
+        SinglyLinkedList.print(head);
+
+        populateSortedList();
+        head = list.reverseKNodesIterative(list.getHead(),3);
+        System.out.print("K Block reversal Iterative == ");
+        SinglyLinkedList.print(head);
+    }
 }
