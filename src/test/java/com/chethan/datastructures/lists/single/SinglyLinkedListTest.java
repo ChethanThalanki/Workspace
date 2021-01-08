@@ -213,5 +213,7 @@ public class SinglyLinkedListTest {
         list.modularNodeFromBeginning(3);
         list.modularNodeFromEnd(3);
         list.isLinkedListEvenLength();
+        list.insertInSortedOrder(9);
+        list.middleNode();
     }
 }

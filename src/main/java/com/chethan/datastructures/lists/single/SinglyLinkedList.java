@@ -365,4 +365,13 @@ public class SinglyLinkedList {
             System.out.println("Linked list have odd no. of nodes");
         }
     }
+
+    public void middleNode(){
+        SLLNode fast = head, slow = head;
+        while(fast != null && fast.getNext() != null){
+            fast = fast.getNext().getNext();
+            slow = slow.getNext();
+        }
+        System.out.println("Middle node value = " + slow.getData());
+    }
 }
