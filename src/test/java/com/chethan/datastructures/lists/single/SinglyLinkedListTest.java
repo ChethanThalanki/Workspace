@@ -212,5 +212,6 @@ public class SinglyLinkedListTest {
         populateSortedList();
         list.modularNodeFromBeginning(3);
         list.modularNodeFromEnd(3);
+        list.isLinkedListEvenLength();
     }
 }

@@ -353,4 +353,16 @@ public class SinglyLinkedList {
         nThNodeFromEnd(k);
         //System.out.println("Modular Node from beginning is " + modularNode.getData() + " for k="+k);
     }
+
+    public void isLinkedListEvenLength(){
+        SLLNode cur = head;
+        while(cur != null && cur.getNext() != null){
+            cur = cur.getNext().getNext();
+        }
+        if(cur == null){
+            System.out.println("Linked list have even no. of nodes");
+        }else{
+            System.out.println("Linked list have odd no. of nodes");
+        }
+    }
 }
