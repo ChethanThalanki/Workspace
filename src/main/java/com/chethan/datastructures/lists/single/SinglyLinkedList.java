@@ -254,4 +254,36 @@ public class SinglyLinkedList {
         }
         return head.getNext();
     }
+
+    public SLLNode pairReversalRecursive(SLLNode head){
+        SLLNode temp;
+        if(head == null || head.getNext() == null)
+            return head;
+        // Reverse First Pair
+        temp = head.getNext();
+        head.setNext(temp.getNext());
+        temp.setNext(head);
+        head = temp;
+
+        // Recursive call
+        head.getNext().setNext(pairReversalRecursive(head.getNext().getNext()));
+        return head;
+    }
+
+    public SLLNode pairReversalIterative(SLLNode head){
+        SLLNode temp = null, newHead = null;
+        while(head != null && head.getNext() != null){
+            if(temp != null){
+                temp.getNext().setNext(head.getNext());
+            }
+            temp = head.getNext();
+            head.setNext(temp.getNext());
+            temp.setNext(head);
+            if(newHead == null) {
+                newHead = temp;
+            }
+            head = head.getNext();
+        }
+        return newHead;
+    }
 }

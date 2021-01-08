@@ -163,4 +163,34 @@ public class SinglyLinkedListTest {
         System.out.println("Iterative merge print -->");
         SinglyLinkedList.print(mergedHead);
     }
+
+    private void populateSortedList() {
+        list = new SinglyLinkedList();
+        list.insertInSortedOrder(10);
+        list.insertInSortedOrder(1);
+        list.insertInSortedOrder(4);
+        list.insertInSortedOrder(5);
+        list.insertInSortedOrder(3);
+        list.insertInSortedOrder(8);
+        list.insertInSortedOrder(6);
+        list.insertInSortedOrder(2);
+        list.insertInSortedOrder(2);
+        list.insertInSortedOrder(0);
+        list.insertInSortedOrder(7);
+        list.print();
+    }
+    @Test
+    void pairReversal(){
+        populateSortedList();
+        SLLNode head = list.pairReversalRecursive(list.getHead());
+        System.out.print("Pair reversal Recursive == ");
+        SinglyLinkedList.print(head);
+
+
+        populateSortedList();
+        head = list.pairReversalIterative(list.getHead());
+        System.out.print("Pair reversal Iterative == ");
+        SinglyLinkedList.print(head);
+    }
+
 }
