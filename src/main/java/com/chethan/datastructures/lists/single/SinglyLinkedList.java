@@ -328,4 +328,29 @@ public class SinglyLinkedList {
         }
         return head;
     }
+
+    // Last element from beginning whose n%k=0
+    public void modularNodeFromBeginning(int k){
+        SLLNode cur = head, modularNode = null;
+        int i = 1;
+        if(k <= 0){
+            System.out.println("k<=0, cannot find modular node");
+            return;
+        }
+        while(cur != null){
+            if(i%k == 0){
+                modularNode = cur;
+            }
+            cur = cur.getNext();
+            i++;
+        }
+        System.out.println("Modular Node from beginning is " + modularNode.getData() + " for k="+k);
+    }
+
+    // First element from end whose n%k=0
+    // same as finding the kth element from the end of the the linked list
+    public void modularNodeFromEnd(int k){
+        nThNodeFromEnd(k);
+        //System.out.println("Modular Node from beginning is " + modularNode.getData() + " for k="+k);
+    }
 }

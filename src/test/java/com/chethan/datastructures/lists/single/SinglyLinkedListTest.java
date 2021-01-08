@@ -206,4 +206,11 @@ public class SinglyLinkedListTest {
         System.out.print("K Block reversal Iterative == ");
         SinglyLinkedList.print(head);
     }
+
+    @Test
+    void modularNode(){
+        populateSortedList();
+        list.modularNodeFromBeginning(3);
+        list.modularNodeFromEnd(3);
+    }
 }
