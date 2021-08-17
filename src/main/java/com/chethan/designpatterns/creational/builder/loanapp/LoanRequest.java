@@ -10,7 +10,7 @@ public class LoanRequest {
 
     private LoanRequestBuilder loanRequestBuilder;
 
-    public LoanRequest(LoanRequestBuilder loanRequestBuilder) {
+    private LoanRequest(LoanRequestBuilder loanRequestBuilder) {
         name = loanRequestBuilder.name;
         type = loanRequestBuilder.type;
         age = loanRequestBuilder.age;

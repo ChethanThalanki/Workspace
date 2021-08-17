@@ -2,18 +2,14 @@ package com.chethan.datastructures.lists.single;
 
 public class SinglyLinkedList {
     private SLLNode head;
+    private static int counter;
 
     public SLLNode getHead() {
         return head;
     }
 
     public void print(){
-        SLLNode temp = head;
-        while(temp != null){
-            System.out.print("["+temp.getData() + "] --> ");
-            temp = temp.getNext();
-        }
-        System.out.println("null");
+        print(head);
     }
 
     public static void print(SLLNode temp){
@@ -125,7 +121,7 @@ public class SinglyLinkedList {
             index++;
         }
         if(pos == index) {
-            prev.setNext(null);
+            prev.setNext(cur.getNext());
             System.out.println("Deleted value --> " + cur.getData() + " at positions: " + pos);
         }else{
             System.out.println("Cannot delete at position " + pos);
@@ -166,12 +162,13 @@ public class SinglyLinkedList {
         System.out.println("Nth Node : " + nThNode.getData());
     }
 
-    public void nThNodeFromEndRecursive(SLLNode node, int n, int counter){
+    public void nThNodeFromEndRecursive(SLLNode node, int n){
         if(node != null){
-            nThNodeFromEndRecursive(node.getNext(), n, counter);
+            nThNodeFromEndRecursive(node.getNext(), n);
             counter ++;
             if(counter == n){
                 System.out.println("Nth Node Recursive : " + node.getData());
+                return;
             }
         }
     }
@@ -373,5 +370,22 @@ public class SinglyLinkedList {
             slow = slow.getNext();
         }
         System.out.println("Middle node value = " + slow.getData());
+    }
+
+    // re-order list l1,l2,.. ln-1,ln to l1,ln,l2,ln-1,....
+    /*public SLLNode reOrderList(){
+        SLLNode fast = head, slow = head;
+        while(fast != null && fast.getNext() != null){
+            fast = fast.getNext().getNext();
+            slow = slow.getNext();
+        }
+        SLLNode head2 = slow.getNext();
+        slow.setNext(null);
+        head2 = reverseRecursion(head2);
+        alternate(head,head2);
+    }
+*/
+    private void alternate(SLLNode head, SLLNode head2) {
+
     }
 }

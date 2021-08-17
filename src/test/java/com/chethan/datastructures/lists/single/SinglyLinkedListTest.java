@@ -102,9 +102,9 @@ public class SinglyLinkedListTest {
         list.insertAtPosition(3, 1);
         list.insertAtPosition(2, 1);
         list.insertAtPosition(-1, 0);
-        list.nThNodeFromEnd(2);
-        list.nThNodeFromEndRecursive(list.getHead(), 2, 0);
-        list.nThNodeFromEnd(4);
+        //list.nThNodeFromEnd(2);
+        list.nThNodeFromEndRecursive(list.getHead(), 2);
+        //list.nThNodeFromEnd(4);
     }
 
     @Test
@@ -212,8 +212,18 @@ public class SinglyLinkedListTest {
         populateSortedList();
         list.modularNodeFromBeginning(3);
         list.modularNodeFromEnd(3);
+        list.insertInSortedOrder(9);
+        list.middleNode();
+    }
+
+    @Test
+    void otherTests(){
+        populateSortedList();
+        list.isLinkedListEvenLength();
+        list.deleteAtPos(2);
         list.isLinkedListEvenLength();
         list.insertInSortedOrder(9);
+        list.isLinkedListEvenLength();
         list.middleNode();
     }
 }
